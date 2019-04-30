@@ -1,0 +1,167 @@
+In collection we can only use a wrapper class
+Jit is used to compile the java program 
+Overloading can be done through in inheritance 
+example
+class Parent
+{
+void disp()
+{
+System.out.println("Parent");
+}
+}
+class Child extends Parent
+{
+void disp(int i)
+{
+System.out.println("")
+}
+}
+public class Poly()
+{
+public static void main(String []args)
+{
+Child c=new Child();
+c.disp();//this will display Parent 
+c.disp(100);//this will display Child
+}
+}
+
+=================================
+In java the methods are by default having default access and virtual.
+
+virtual :- should override
+abstract :- must override
+
+================== 
+ 
+Object in java
+
+Abc a; //not a object it is a reference to the object
+Abc a=new Abc();
+
+Object in c++
+Abc a;
+Abc *a=new Abc();
+
+The Object is stored in Heap 
+The references are stored in Stack
+
+The gc will clear those object which has no reference
+
+Child c1=new Child();
+Child c2=c1;//it shows that two references are pointing  to a single object 
+=============================== 
+
+Hashing is generating a unique number that represents a value
+
+we use hash for indexing in hashing the notation is O(1).
+
+=========================================
+
+OOP is used to incorporate real world scenarios in programming
+
+SPhageticcode :the code  which can be called any where.
+ 
+BoilerPlate code-: the code which is written again and again 
+
+=================================
+class :- class is having the behaviour/entity of a object
+
+Object is an instance which exist in a real world of a class.
+
+============================
+Abstraction :
+   access modifiers/specifiers
+Encapulation :
+    class/package
+
+Polymorphism:
+    i. Static : Overloading  
+    ii. Dyanamic : Overriding
+============================
+Giudelines:-
+
+1. keywords,packages will written in lowercase
+int, class,java.util
+2.class/interface names are written in initial capital
+System,Customer,CustomerDetail
+
+3.Method names are written in camel case
+main(),toString()
+
+4.constants are written uppercase
+PI,MAX_PRIORITY 
+
+================
+package :- it a folder which include classes 
+Access Specifiers
+
+default:-we can use or extend the default class in same class bt not outside the package
+package abhishek;
+class Inpack()
+{
+void disp()
+{
+//code here
+}
+}
+-----------
+import abhishek.Inpack;
+public class UsePack()
+{
+public static void main(String []args)
+{
+Inpack i=new Inpack();//This will give error because default class can not be used outside the package
+//if we create public it will also give error while we access the method because it is also default
+i.disc();//give error because it is default
+}
+}
+public :- can be use anywhere
+//if we create a class public it is mandatory to have the class name and file same
+//a Outer class can always be public or default
+//an Inner class can be static because it is defiend in inside the outer class  
+protected :- a child class can only access the protected methods of a parent class
+ 
+private :- the method or variable that can only be used inside the class
+// a class can  not be private because 
+the hirarchy will be:-
+public 
+protected
+default
+private
+
+
+==============================
+Library or Framework or Component :- prewritten code and library is part of framework
+
+Bean or Component : - pre written code which 
+
+path :- to set the commands of java
+
+class path :- the path which used to run our program 
+the use of class path is when we create some classes in different drives 
+======================================================================
+Overloading
+method Signature :-
+1.Number
+void add(int a,int b)
+void add(int a,int b,int c)
+2.Type
+void add(int a,int b)
+void add(float a,float b)
+3.Sequence
+void add(int a,float b)
+void add(float a,int b)
+
+
+Overrriding can be remove by Final keyword
+
+Overloading can be remove by Generics
+
+==================================================================
+Constructor:-it is a special method  it is used to initialize the Object or data members
+1.Constructor has same name as the class
+2. it does not have return type
+3. it is called automatically whenever class is intiated
+
+Note :- if we don't create any contructor of a class then compiler generates the default constructor
