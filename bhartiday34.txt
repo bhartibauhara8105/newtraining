@@ -1,0 +1,704 @@
+//i//static :-
+//static methods :- if we want to imediately invoke that method we write it as static 
+//because it is loaded with the class that why we create main method static
+
+//non static can not be referenced from a static context but visa versa of this is possible 
+//static variablr can be referenced from static nad non static context
+//we can use non static variable in static context only when we create its object 
+
+//with static we can also overload
+
+
+
+******if both parent and child method(same name and sign) are non static then it is overriding bt if both are static method then emthod will be called voa reference variable
+but both has to be either static or non static if you will not recieve error.
+
+=================================================================================
+
+enhanced/advance for(loop) 1.5
+Scanner 1.5
+Queue(Collection)  1.5
+Generic 1.5
+
+Collection 1.2
+Vector  1.0
+
+try with resource  1.7
+
+1.8:-
+lambda
+functional interfaces
+default and static method interface
+streams
+datetime api
+collection improvements
+foreach
+..............
+
+1.9
+jshell
+jdk is moudilarized 
+streams improvement
+
+
+======================================
+outer.class
+outer$Inner.class
+Nested.class
+
+Inner Class:-
+
+1.static inner class with static member :-
+//then we can call it with outer.inner.methodname()
+class Outer
+{
+static class Inner{
+static void disp()
+{
+System.out.println("Hello");
+}
+}
+}
+class Nested
+{
+public static void main(String []args )
+{
+
+Outer.Inner.disp();
+
+}
+
+}
+//output:-
+
+2. static inner with non static method :-
+class Outer
+{
+static class Inner{
+void disp()
+{
+System.out.println("Hello");
+}
+}
+}
+class Nested
+{
+public static void main(String []args )
+{
+
+Outer.Inner i=new Outer.Inner();//
+i.disp();
+
+}
+
+}
+//output
+
+3.non static inner with static method :-
+class Outer
+{
+ class Inner{
+static void disp()
+{
+System.out.println("Hello");
+}
+}
+}
+class Nested
+{
+public static void main(String []args )
+{
+
+//Outer.Inner i=new Outer.Inner();
+i.disp();
+
+}
+
+}
+//Illegal static declaration in inner class
+// this is not possible that's why it shows error
+4. non static inner with non static method :-
+class Outer
+{
+ class Inner{
+ void disp()
+{
+System.out.println("Hello");
+}
+}
+}
+class Nested
+{
+public static void main(String []args )
+{
+
+Outer i= new Outer();
+Outer.Inner ij= i.new Inner();
+ij.disp();
+
+}
+
+}
+
+ex 2:-
+class Outer
+{
+ class Inner{
+ void disp()
+{
+System.out.println("Hello");
+}
+}
+void show()
+{
+	Inner i=new Inner();
+	i.disp();
+}
+}
+class Nested
+{
+public static void main(String []args )
+{
+
+Outer i= new Outer();
+//Outer.Inner ij= i.new Inner();
+i.show();
+
+}
+
+}
+==========================================================
+Anonomous Inner class :-
+// the class which we don't declare or define 
+
+abstract class Cloth
+{
+abstract void price();
+}
+public class Anon
+{
+public sta void main(String []args)
+{
+Cloth c= new Cloth(){
+void price(){
+System.out.println("Price");
+}
+};
+c.price();
+}
+}
+
+
+//through interface
+interface Cloth
+{
+public void price();
+}
+public class Anon
+{
+public static void main(String []args)
+{
+Cloth c= new Cloth(){
+public void price(){
+System.out.println("Price");
+}
+};
+c.price();
+}
+}
+=====================================================
+interface :-
+// without using existing code the process can be changed using interface
+interface Demo
+{
+default void disp()
+{
+System.out.println("Hello1");
+}
+default void show()
+{
+System.out.println("Hello2");
+}
+static void disp1()
+{
+System.out.println("Hello3");
+}
+
+}
+public class DSI implements Demo
+{
+public static void main(String []args )
+{
+
+DSI i= new DSI();
+i.disp();
+i.show();
+Demo.disp1();
+
+}
+
+}
+
+Overriding through interface :-
+interface Demo
+{
+default void disp()
+{
+System.out.println("Hello1");
+}
+default void show()
+{
+System.out.println("Hello2");
+}
+static void disp1()
+{
+System.out.println("Hello3");
+}
+
+}
+public class DSI implements Demo
+{
+	public void disp()
+{
+	System.out.println("DSI hELLO");
+}
+
+public static void main(String []args )
+{
+DSI i= new DSI();
+//Outer.Inner ij= i.new Inner();
+i.disp();
+i.show();
+Demo.disp1();
+
+}
+
+} 
+
+2..\
+interface Demo
+{
+default void disp()
+{
+System.out.println("Hello1");
+}
+default void show()
+{
+System.out.println("Hello2");
+}
+static void disp1()
+{
+System.out.println("Hello3");
+}
+
+}
+public class DSI implements Demo
+{
+	public void disp()
+{
+	System.out.println("DSI hELLO");
+}
+static void disp1()
+{
+	System.out.println("Dsi Hello3");
+}
+
+public static void main(String []args )
+{
+Demo i= new DSI();
+//Outer.Inner ij= i.new Inner();
+i.disp();
+i.show();
+i.disp1();
+//Demo.disp1();
+
+}
+
+}
+//error: illegal static interface method call
+===============================================
+object oriented is a programming paradiam
+
+=================================================
+exception :- it is an unexpected event which occurs during the execution of the program at run time
+try :- it is a block where an exception may or may not occur
+catch :- if an exception occurs  in try block than  it is handled by the catch block
+finally:-
+ //we try to write minimal code in try block because when exception occurs rest of the code will not be executed.
+//if we have not handled the checked exception the error comes is :- must be caught or declared to be thrown
+//last catch block should be exception 
+=================================================
+array :- it is a collection of multiple elements of same data type so it is homogeneous
+//array can also be written by creating the object of it
+//to get the class name of array of primitive
+//arrays and collections are the utility classes 
+//in jagged array rows are fixed bt columns are not
+
+[I :- Integer
+[B :- 
+[S :- Short
+
+[Z :- boolean
+
+[L :- java.lang.String
+
+======================================================
+Arrays :- length
+String :- length()
+Collection :- size()
+
+==============================================================
+Collection :-
+Collection is a group od data manipulate as a single object
+//Hetrogeneous
+//iterator 
+//generic 
+//ArrayList :-
+//initially  the array list size is 10 bt we can specify in constructor
+//next allocation formula
+New Capacity=(Current capacity*3/2)+1;
+ex:-
+import java.util.*;
+class Arra
+{
+public static void main(String []args )
+{
+System.out.println("enter the size of array");
+int n=sc.nextInt();
+byte ch;
+try(Scanner sc=new Scanner(System.in);
+)
+{
+ArrayList a=new ArrayList();
+do
+{
+	System.out.println("Enter Element");
+	a.add(sc.nextInt());
+	System.out.println("wanna cont 0/1 :");
+	ch=sc.nextByte();
+	
+}while(ch==1);
+
+}
+/*for(Object i : a)
+{
+	System.out.println(i);
+}*/
+System.out.println("---------------");
+ListIterator  lit=a.listIterator();
+while(lit.hasNext()){
+	int val =(int)lit.next();
+	if(val%2!=0)
+		lit.remove();
+	
+}
+System.out.println("---------------");
+for(Object i : a)
+{
+	System.out.println(i);
+}
+
+}
+}
+Vector :-
+import java.util.*;
+public class Vec
+{
+public static void main(String []args)
+{
+Vector v=new Vector();
+System.out.println(v.capacity());
+v.addElement(1);
+v.add(2);
+v.add(3);
+v.add(4);
+v.add(5);
+v.add(6);
+v.add(3);
+v.add(9);
+v.add("bharti");
+v.add(3.4f);
+v.add(3.2f);
+
+System.out.println(v.capacity());
+for(Object i : v)
+{
+	System.out.println(i);
+}
+}
+}
+
+LinkedList :-
+this stores the address of next node because in linked list the memory is allocated at run time
+//internally the linked list in java is doubly
+
+
+Stack:-
+//method call
+//brackets
+import java.util.*;
+class Stac
+{
+private	LinkedList list=new LinkedList();
+public void push(Object o)
+{
+	list.addFirst(o);
+}
+public Object top()
+{
+	return list.getFirst();
+}
+public Object pop()
+{
+	return list.removeFirst();
+}
+public static void main(String []args)
+{
+Stac s = new Stac();
+s.push(10);
+System.out.println(s.pop());
+
+/*
+LinkedList li=new LinkedList();
+li.push(1);
+li.push(2);
+li.push(3);
+li.push(4);
+for(Object i : li)
+{
+	System.out.println(i);
+}*/
+
+}
+}
+Queue:-
+//CPU Scheduling
+//Undo & rEDO
+//PRINTER 
+//KEYBOARD BUFFEREING
+import java.util.*;
+class Que
+{
+private	LinkedList<Integer> list=new LinkedList<Integer>();
+public void enqueue(Integer o)
+{
+	list.addLast(o);
+}
+public Integer front()
+{
+	return list.getFirst();
+
+}
+public Integer rear()
+{
+	return list.getLast();
+}
+public Integer dequeue()
+{
+	return list.removeFirst();
+}
+public static void main(String []args)
+{
+Que q=new Que();
+q.enqueue(10);
+q.enqueue(20);
+System.out.println(q.dequeue());
+/*
+Stac s = new Stac();
+s.push(10);
+System.out.println(s.pop());
+
+/*
+LinkedList li=new LinkedList();
+li.push(1);
+li.push(2);
+li.push(3);
+li.push(4);
+for(Object i : li)
+{
+	System.out.println(i);
+}*/
+
+
+}
+}
+//linked list is time consuming
+//there is no ramdom access possible in linked list
+==============================================================
+
+Globalization :- Multiple lanquage support
+Localization :- l10n  the content will convert into that lanquage at localized place of that country
+Internationalization :- i18n it is similar to globelization
+==================================================================
+Linked Hash set : - it is faster than tree set because it is not sorted is 
+//it is faster for retrival because its 
+
+thread safety :-
+//if two threads are working at the same time than this will cause problem in space
+so thats why we use thread safety
+//when one thread work in one time than this is thread safety
+//bt this is time consunming  
+
+
+========================================================
+Map :- it is a part of collection framework bt it is not inheriting the collection interface
+1.HashMap(C)1.2v
+a.LinkedHashMap(C)1.4v
+2.WeakHashMap(C)1.2v
+3.SortedMap(I)1.2V 
+a.NavigableMap(I)1.6v
+i.TreeMap(C)1.2v
+4.Hashtable(C)1.0v
+a.Properties(C)
+
+
+=================================================================
+
+the return type of execute statement is int 
+
+
+Queue:-
+import java.util.*;
+class QueueEx
+{
+public static void main(String []args)
+{
+Deque<String> q=new ArrayDeque<String>();
+q.addFirst("aaa");
+q.peek();
+
+q.addLast("bbb");
+q.element();
+q.poll();
+q.offer("ccc");
+
+System.out.println(q.element());
+//Iterator  lit=q.Iterator();
+System.out.println("---------------");
+for(String i : q)
+{
+	System.out.println(i);
+}
+}
+}
+Set :-
+import java.util.*;
+class Sets
+{
+
+public static void main(String []args)
+{
+TreeSet<Number> s=new TreeSet<Number>();
+s.add(10);
+s.add(20);
+s.add(30);
+s.add(40);
+s.add(50);
+s.add(70);
+s.add(80);
+System.out.println(s.headSet(30));
+System.out.println(s.tailSet(30));
+System.out.println(s.subSet(20,50));
+System.out.println(s.headSet(20,false));
+System.out.println(s.tailSet(20,true));
+System.out.println(s.subSet(20,true,50,false));
+
+
+
+
+}
+}
+Linked List :-
+import java.util.*;
+class Que
+{
+private	LinkedList<Integer> list=new LinkedList<Integer>();
+public void enqueue(Integer o)
+{
+	list.addLast(o);
+}
+public Integer front()
+{
+	return list.getFirst();
+
+}
+public Integer rear()
+{
+	return list.getLast();
+}
+public Integer dequeue()
+{
+	return list.removeFirst();
+}
+public static void main(String []args)
+{
+Que q=new Que();
+q.enqueue(10);
+q.enqueue(20);
+System.out.println(q.dequeue());
+/*
+Stac s = new Stac();
+s.push(10);
+System.out.println(s.pop());
+
+/*
+LinkedList li=new LinkedList();
+li.push(1);
+li.push(2);
+li.push(3);
+li.push(4);
+for(Object i : li)
+{
+	System.out.println(i);
+}*/
+
+
+}
+}
+
+Stack :-
+import java.util.*;
+class StackEx
+{
+
+public static void main(String []args)
+{
+Stack<String> s=new Stack<String>();
+s.push("a");
+s.push("b");
+System.out.println(s.pop());
+
+}
+}
+
+Map :-
+import java.util.*;
+class Maps
+{
+public static void main(String []args)
+{
+HashMap<String,Number> h=new HashMap<String,Number>();
+h.put("Bharti",21);
+h.put("Abhi",21);
+h.put("Annu",21);
+System.out.println(h);
+System.out.println(h.isEmpty());
+System.out.println(h.size());
+System.out.println(h);
+h.replace("Bharti",21,20);
+System.out.println(h);
+System.out.println(h.values());
+System.out.println(h);
+//h.putVal(24,"Nidhi",21,true,false);
+System.out.println(h.keySet());
+System.out.println(h);
+Set<String> keys=h.keySet();
+for(String k:keys)
+{
+	System.out.println(k+"  "+h.get(k));
+}
+
+
+
+}
+}
